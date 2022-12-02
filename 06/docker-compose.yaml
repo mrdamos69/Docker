@@ -1,0 +1,15 @@
+services:
+  nginx_server:
+    build: ./nginx_server
+    user: root
+    image: nginx_server:ng_serv
+    container_name: serv_container
+    ports:
+      - "80:9999"
+
+  fcgi_server:
+    build: ./prox_server
+    image: prox_server:px_serv
+    container_name: prox_container
+    ports:
+      - "8080:8080"
